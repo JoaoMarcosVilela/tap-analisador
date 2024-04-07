@@ -22,11 +22,8 @@ public class Main {
 		if(!diretorio.exists()) {
 			diretorio.mkdir();
 		}
-		
 		for(int i = 1; i<10 ; i++) {
-			
 			try {
-				
 				String diretorioAtual = System.getProperty("user.dir");
 				String localArquivo = diretorioAtual.substring(0, diretorioAtual.indexOf("projeto-legenda-json"));
 				
@@ -54,11 +51,9 @@ public class Main {
 	                		.map(par_chave_valor -> new Frequencia(par_chave_valor.getKey(), par_chave_valor.getValue()))
 	                		.collect(Collectors.toList());
 	            
-				
 	                Gson gson = new Gson();
 	                String json = gson.toJson(palavrasFrequencia);
 	                
-	                //ESCREVER O JSON EM UM ARQUIVO
 	                try(BufferedWriter writer = new BufferedWriter(
 	                		new FileWriter("resultados/Vikings.S01E0"+ i + ".1080p.WEB-DL.AC3.X264-MRSK.srt.json"))){
 	                	writer.write(json);
@@ -70,9 +65,6 @@ public class Main {
 			}catch (Exception e) {
 				System.out.println("Erro");
 			}
-			
 		}
-
 	}
-
 }
