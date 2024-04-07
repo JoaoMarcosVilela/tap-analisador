@@ -1,6 +1,6 @@
 # Instruções para utilizar o programa
 
-* Este programa foi desenvolvido utilizando o sdk-18, é aconselhavel que utilize no minimo a versão do java sdk-18.\
+* Este programa foi desenvolvido utilizando o sdk-18, é aconselhavel que utilize no minimo a versão do java sdk-18.
 * Segue o link caso não tenha o sdk instalado:
 `https://www.oracle.com/java/technologies/javase/jdk18-archive-downloads.html`
 
@@ -23,3 +23,7 @@
 7. Após isso irá criar uma pasta com o nome resultados no diretório que você está
 
 8. Entre na pasta e todos os arquivos .json estaram gerados.
+
+# CASO PREFIRA VÊ UM VÍDEO DO PASSO A PASSO ACESSE ABAIXO
+
+`https://youtu.be/adRmLTIqtFg`

@@ -48,10 +48,10 @@ public class Main {
 
 				
 				List<Map.Entry<String, Integer>> listaPalavras = new ArrayList<>(contagemPalavras.entrySet());
-				listaPalavras.sort((entry1, entry2) -> entry2.getValue().compareTo(entry1.getValue()));
+				listaPalavras.sort((par_chave_valor1, par_chave_valor2) -> par_chave_valor2.getValue().compareTo(par_chave_valor1.getValue()));
 
 	                List<Frequencia> palavrasFrequencia = listaPalavras.stream()
-	                		.map(entry -> new Frequencia(entry.getKey(), entry.getValue()))
+	                		.map(par_chave_valor -> new Frequencia(par_chave_valor.getKey(), par_chave_valor.getValue()))
 	                		.collect(Collectors.toList());
 	            
 				
