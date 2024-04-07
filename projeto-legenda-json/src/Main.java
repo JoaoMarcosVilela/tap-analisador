@@ -26,8 +26,12 @@ public class Main {
 		for(int i = 1; i<10 ; i++) {
 			
 			try {
-				String regexEps = "/Vikings.S01E0"+ i +".1080p.WEB-DL.AC3.X264-MRSK.srt";
-				Path arquivo = Paths.get("C:/Users/joaom/OneDrive/Área de Trabalho/IFPE/5º PERÍODO/Tópicos avançados/tap-analisador/vikings-first-season"+regexEps);
+				
+				String diretorioAtual = System.getProperty("user.dir");
+				String localArquivo = diretorioAtual.substring(0, diretorioAtual.indexOf("projeto-legenda-json"));
+				
+				String regexEps = "vikings-first-season/Vikings.S01E0"+ i +".1080p.WEB-DL.AC3.X264-MRSK.srt";
+				Path arquivo = Paths.get(localArquivo+regexEps);
 				
 				List<String> linhas = Files.readAllLines(arquivo);
 				Map<String, Integer> contagemPalavras = new HashMap<>();
@@ -46,25 +50,29 @@ public class Main {
 				List<Map.Entry<String, Integer>> listaPalavras = new ArrayList<>(contagemPalavras.entrySet());
 				listaPalavras.sort((entry1, entry2) -> entry2.getValue().compareTo(entry1.getValue()));
 
-	            List<Frequencia> palavrasFrequencia = listaPalavras.stream()
-	                	.map(entry -> new Frequencia(entry.getKey(), entry.getValue()))
-	               		.collect(Collectors.toList());
+	                List<Frequencia> palavrasFrequencia = listaPalavras.stream()
+	                		.map(entry -> new Frequencia(entry.getKey(), entry.getValue()))
+	                		.collect(Collectors.toList());
 	            
 				
-	            Gson gson = new Gson();
-	            String json = gson.toJson(palavrasFrequencia);
+	                Gson gson = new Gson();
+	                String json = gson.toJson(palavrasFrequencia);
 	                
-	            //ESCREVER O JSON EM UM ARQUIVO
-	            try(BufferedWriter writer = new BufferedWriter(new FileWriter("resultados/Vikings.S01E0"+ i + ".1080p.WEB-DL.AC3.X264-MRSK.srt.json"))){
-	               	writer.write(json);
-	               	System.out.println("EP0"+i+" Gerado");
-	            }catch(Exception e) {
-	            	e.printStackTrace();
+	                //ESCREVER O JSON EM UM ARQUIVO
+	                try(BufferedWriter writer = new BufferedWriter(
+	                		new FileWriter("resultados/Vikings.S01E0"+ i + ".1080p.WEB-DL.AC3.X264-MRSK.srt.json"))){
+	                	writer.write(json);
+	                	System.out.println("EP0"+i+" Gerado");
+	                }catch(Exception e) {
+	                	e.printStackTrace();
 	                }
-	    
+                
 			}catch (Exception e) {
 				System.out.println("Erro");
-			}	
+			}
+			
 		}
+
 	}
+
 }

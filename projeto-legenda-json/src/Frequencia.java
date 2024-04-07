@@ -13,5 +13,4 @@ public class Frequencia {
     public int getFrequencia() {
         return frequencia;
     }
-    
 }
